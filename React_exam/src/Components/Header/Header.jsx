@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { filterMovies, logoutUser } from '../../Services/Actions/Movie_Actions';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../Firebase';
+import { toast } from 'react-toastify';
 
 function Header() {
     const { user } = useSelector((state) => state.AuthReducer);
@@ -28,7 +29,10 @@ function Header() {
 
     const handleLogout = async () => {
         await dispatch(logoutUser());
-        navigate('/signin');
+        toast.success("Logout successful!");
+        setTimeout(() => {
+            navigate('/signin');
+        }, 2500);
     };
 
     useEffect(() => {

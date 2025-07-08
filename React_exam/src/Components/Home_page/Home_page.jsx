@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteMovieAsync, getMoviesAsync } from '../../Services/Actions/Movie_Actions';
 import { Container, Row, Col, Card, Spinner, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Home_Page.css';
 import Slider from './slider';
 
@@ -13,7 +13,6 @@ function Home_page() {
     const { filteredMovies, loading, user } = useSelector((state) => state.Movie_Reducers);
     const isAdmin = user?.email === "admin@gmail.com";
 
-    // Pagination state
     const [currentPage, setCurrentPage] = useState(1);
     const moviesPerPage = 8;
 
@@ -65,47 +64,44 @@ function Home_page() {
                             {currentMovies.length > 0 ? currentMovies.map((movie) => (
                                 <Col key={movie.id} xs={12} sm={6} md={4} lg={3} className="movie-card-col">
                                     <Card className="movie-card h-100">
-                                        <div className="poster-container">
-                                            <Card.Img
-                                                variant="top"
-                                                src={movie.poster}
-                                                alt={movie.title}
-                                                className="movie-poster"
-                                            />
-                                        </div>
+                                        <Link to={`/view/${movie.id}`} className="text-decoration-none">
+                                            <div className="poster-container">
+                                                <Card.Img
+                                                    variant="top"
+                                                    src={movie.poster}
+                                                    alt={movie.title}
+                                                    className="movie-poster"
+                                                />
+                                            </div>
+                                        </Link>
                                         <Card.Body className="movie-details">
                                             <Card.Title className="movie-title">{movie.title}</Card.Title>
                                             <Card.Text className="movie-genre">{movie.genre}</Card.Text>
                                         </Card.Body>
 
-                                        {isAdmin && (
-                                            <Card.Footer className="movie-actions d-flex justify-content-between">
-                                                <Button
-                                                    variant="outline-info"
-                                                    size="sm"
-                                                    onClick={() => navigate(`/view/${movie.id}`)}
-                                                    className="action-btn"
-                                                >
-                                                    View
-                                                </Button>
-                                                <Button
-                                                    variant="outline-primary"
-                                                    size="sm"
-                                                    onClick={() => navigate(`/edit/${movie.id}`)}
-                                                    className="action-btn"
-                                                >
-                                                    Edit
-                                                </Button>
-                                                <Button
-                                                    variant="outline-danger"
-                                                    size="sm"
-                                                    onClick={() => handleDelete(movie.id)}
-                                                    className="action-btn"
-                                                >
-                                                    Delete
-                                                </Button>
-                                            </Card.Footer>
-                                        )}
+                                        <div className="movie-actions d-flex justify-content-center">
+                                            {isAdmin && (
+                                                <>
+                                                    <Button
+                                                        variant="outline-primary"
+                                                        size="sm"
+                                                        onClick={() => navigate(`/edit/${movie.id}`)}
+                                                        className="action-btn"
+                                                    >
+                                                        Edit
+                                                    </Button>
+                                                    <Button
+                                                        variant="outline-danger"
+                                                        size="sm"
+                                                        onClick={() => handleDelete(movie.id)}
+                                                        className="action-btn"
+                                                    >
+                                                        Delete
+                                                    </Button>
+                                                </>
+                                            )}
+                                        </div>
+
                                     </Card>
                                 </Col>
                             )) : (
@@ -115,7 +111,6 @@ function Home_page() {
                             )}
                         </Row>
 
-                        {/* Pagination Controls with Prev/Next */}
                         {totalPages > 1 && (
                             <div className="pagination-controls d-flex justify-content-center align-items-center gap-2 mt-4 flex-wrap">
                                 <Button

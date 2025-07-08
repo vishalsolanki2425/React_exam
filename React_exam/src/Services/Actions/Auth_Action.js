@@ -47,9 +47,14 @@ export const checkAuthStatus = () => (dispatch) => {
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            dispatch({ type: "LOGIN_SUCCESS", payload: user });
+            dispatch({
+                type: "LOGIN_SUCCESS",
+                payload: user
+            });
         } else {
-            dispatch({ type: "LOGOUT" });
+            dispatch({
+                type: "LOGOUT"
+            });
         }
     });
 };

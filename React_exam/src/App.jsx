@@ -12,7 +12,6 @@ import SignUp from './Components/Signup_page/Signup';
 import { checkAuthStatus } from './Services/Actions/Auth_Action';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
 
 function App() {
   const dispatch = useDispatch();

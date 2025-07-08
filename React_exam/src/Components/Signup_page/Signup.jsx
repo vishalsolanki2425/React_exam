@@ -3,6 +3,7 @@ import { Container, Form, Button, Alert, Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUpUser } from '../../Services/Actions/Auth_Action';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -23,7 +24,10 @@ const SignUp = () => {
 
     useEffect(() => {
         if (user) {
-            navigate('/');
+            toast.success("Sign Up successful!");
+             setTimeout(() => {
+                navigate("/");
+            }, 2500);
         }
     }, [user, navigate]);
 
