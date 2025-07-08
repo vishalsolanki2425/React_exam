@@ -12,9 +12,10 @@ const Edit_Movie = () => {
     const { movies } = useSelector(state => state.Movie_Reducers);
     const [formData, setFormData] = useState({
         title: '',
-        genre: '',
+        Category: '',
         rating: '',
         votes: '',
+        Desc: '',
         poster: ''
     });
 
@@ -64,11 +65,25 @@ const Edit_Movie = () => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Rating</Form.Label>
-                    <Form.Control name="rating" type="number" value={formData.rating} onChange={handleChange} required />
+                    <Form.Select name="rating" value={formData.rating} onChange={handleChange} required >
+                        <option value="">Select Rating</option>
+                        {[...Array(5)].map((_, i) => {
+                            const rating = (i + 1).toString();
+                            return (
+                                <option key={rating} value={rating}>
+                                    {'★'.repeat(i + 1)}
+                                </option>
+                            );
+                        })}
+                    </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Votes</Form.Label>
                     <Form.Control name="votes" value={formData.votes} onChange={handleChange} required />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control as="textarea" rows={3} name="Desc" placeholder="Enter short description" value={formData.Desc} onChange={handleChange} required />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Poster URL</Form.Label>

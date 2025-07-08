@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Container, Card, Button, Row, Col, Badge } from 'react-bootstrap';
 import './View_movie.css';
+
 const View_Movie = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -20,12 +21,11 @@ const View_Movie = () => {
     }
 
     return (
-        <Container className="movie-view-container">
+        <Container className="movie-view-container my-4 p-4 border rounded bg-light">
             <Row className="justify-content-center">
                 <Col xl={10} lg={10} md={12}>
                     <Card className="movie-card">
                         <Row className="g-0">
-                            {/* Movie Poster */}
                             <Col lg={4} md={5} className="poster-col">
                                 <div className="poster-wrapper">
                                     <Card.Img
@@ -33,22 +33,13 @@ const View_Movie = () => {
                                         alt={movie.title}
                                         className="movie-poster"
                                     />
-                                    <div className="rating-badge">
-                                        <Badge bg="warning" text="dark">
-                                            ⭐ {movie.rating}/10
-                                        </Badge>
-                                    </div>
                                 </div>
                             </Col>
 
-                            {/* Movie Details */}
                             <Col lg={8} md={7}>
                                 <Card.Body className="movie-details">
-                                    <Card.Title className="movie-title">
+                                    <Card.Title className="movie-title-view">
                                         {movie.title}
-                                        <span className="release-year">
-                                            ({new Date(movie.releaseDate).getFullYear()})
-                                        </span>
                                     </Card.Title>
 
                                     <div className="genre-badges mb-3">
@@ -91,49 +82,16 @@ const View_Movie = () => {
                         </Row>
                     </Card>
 
-                    {/* Additional Sections */}
-                    <Row className="mt-4">
-                        <Col md={6}>
-                            <Card className="cast-card">
-                                <Card.Header>Cast</Card.Header>
-                                <Card.Body>
-                                    <div className="cast-grid">
-                                        {movie.cast?.length > 0 ? (
-                                            movie.cast.map((actor, i) => (
-                                                <div key={i} className="cast-member">
-                                                    <div className="cast-avatar">{actor.name.charAt(0)}</div>
-                                                    <div>
-                                                        <div className="cast-name">{actor.name}</div>
-                                                        <div className="cast-role">{actor.role}</div>
-                                                    </div>
-                                                </div>
-                                            ))
-                                        ) : (
-                                            <p>Cast information not available</p>
-                                        )}
-                                    </div>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col md={6}>
-                            <Card>
-                                <Card.Header>Showtimes</Card.Header>
-                                <Card.Body>
-                                    {movie.showtimes?.length > 0 ? (
-                                        <div className="showtimes">
-                                            {movie.showtimes.map((time, i) => (
-                                                <Badge key={i} bg="light" text="dark" className="me-2 mb-2">
-                                                    {time}
-                                                </Badge>
-                                            ))}
-                                        </div>
-                                    ) : (
-                                        <p>Showtimes not available</p>
-                                    )}
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    </Row>
+                    <div className="about">
+                        <Card className="mt-4">
+                            <Card.Header>About the Movie</Card.Header>
+                            <Card.Body>
+                                <p>
+                                    {movie.Desc || 'No description available for this movie.'}
+                                </p>
+                            </Card.Body>
+                        </Card>
+                    </div>
                 </Col>
             </Row>
         </Container>

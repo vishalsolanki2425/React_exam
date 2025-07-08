@@ -8,7 +8,8 @@ import './Home_Page.css';
 function Home_page() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { movies, loading } = useSelector(state => state.Movie_Reducers);
+
+    const { filteredMovies, loading } = useSelector((state) => state.Movie_Reducers);
 
     useEffect(() => {
         dispatch(getMoviesAsync());
@@ -16,7 +17,9 @@ function Home_page() {
 
     const handleDelete = (id) => {
         if (window.confirm('Are you sure you want to delete this movie?')) {
-            dispatch(deleteMovieAsync(id));
+            dispatch(deleteMovieAsync(id)).then(() => {
+                dispatch(getMoviesAsync());
+            });
         }
     };
 
@@ -32,7 +35,7 @@ function Home_page() {
                     </div>
                 ) : (
                     <Row className="movie-grid">
-                        {movies.length > 0 ? movies.map((movie) => (
+                        {filteredMovies.length > 0 ? filteredMovies.map((movie) => (
                             <Col key={movie.id} xs={12} sm={6} md={4} lg={3} className="movie-card-col">
                                 <Card className="movie-card h-100">
                                     <div className="poster-container">
@@ -86,13 +89,13 @@ function Home_page() {
 
             <Container>
                 <div className="movie_poster mb-4">
-                <img
-                    src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/stream-leadin-web-collection-202210241242.png"
-                    alt="Movie Poster"
-                    className="poster-image"
-                    style={{ width: '100%', height: 'auto' }}
-                />
-            </div>
+                    <img
+                        src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/stream-leadin-web-collection-202210241242.png"
+                        alt="Movie Poster"
+                        className="poster-image"
+                        style={{ width: '100%', height: 'auto' }}
+                    />
+                </div>
             </Container>
         </div>
     );

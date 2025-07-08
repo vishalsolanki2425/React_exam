@@ -1,0 +1,162 @@
+.movie-view-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.movie-card {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.poster-col {
+    position: relative;
+}
+
+.poster-wrapper {
+    height: 100%;
+    position: relative;
+}
+
+.movie-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.movie-details {
+    padding: 25px;
+}
+
+.movie-title-view {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.release-year {
+    font-weight: 400;
+    color: #666;
+    margin-left: 8px;
+}
+
+.genre-badges .badge {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    margin-bottom: 8px;
+}
+
+.movie-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    font-weight: 600;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.movie-plot {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.movie-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.about {
+    margin-top: 30px;
+}
+
+.about .card {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+@media (max-width: 992px) {
+    .movie-title-view {
+        font-size: 1.6rem;
+    }
+
+    .movie-details {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .movie-view-container {
+        padding: 15px;
+    }
+
+    .movie-card {
+        flex-direction: column;
+    }
+
+    .poster-col {
+        max-height: 500px;
+    }
+
+    .movie-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .movie-title-view {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .movie-view-container {
+        padding: 10px;
+    }
+
+    .movie-title-view {
+        font-size: 1.3rem;
+    }
+
+    .movie-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .genre-badges .badge {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+
+    .movie-plot {
+        font-size: 0.95rem;
+    }
+
+    .about .card-header {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .movie-title-view {
+        font-size: 1.2rem;
+    }
+
+    .release-year {
+        display: block;
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
