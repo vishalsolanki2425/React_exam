@@ -63,7 +63,7 @@ function Header() {
 
                     <div className="d-flex align-items-center gap-3">
                         <div className="location-selector">Surat <span className="dropdown-arrow">▾</span></div>
-                        {user && (
+                        {user?.email === "admin@gmail.com" && (
                             <button className="sign-in-btn">
                                 <Link to="/add" className="text-decoration-none text-white">Add Movie</Link>
                             </button>

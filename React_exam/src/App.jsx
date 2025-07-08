@@ -21,18 +21,6 @@ function App() {
     dispatch(checkAuthStatus());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       dispatch({ type: "LOGIN_SUCCESS", payload: user });
-  //     } else {
-  //       dispatch({ type: "LOGOUT" });
-  //     }
-  //   });
-
-  //   return () => unsubscribe();
-  // }, [dispatch]);
-
   return (
     <>
       <Header />
