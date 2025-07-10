@@ -11,6 +11,7 @@ const Add_movie = () => {
     const [movie, setMovie] = useState({
         title: '',
         Category: '',
+        Language: '',
         rating: '',
         votes: '',
         Desc: '',
@@ -32,7 +33,7 @@ const Add_movie = () => {
 
         await dispatch(addMovieAsync(movie));
         alert("Movie added successfully!");
-        setMovie({ title: '', genre: '', rating: '', votes: '', Desc: '', poster: '' });
+        setMovie({ title: '', genre: '', Language: '', rating: '', votes: '', Desc: '', poster: '' });
         navigate('/');
     };
 
@@ -68,6 +69,26 @@ const Add_movie = () => {
                         <option>Horror</option>
                         <option>Adventure</option>
                         <option>Animation</option>
+                    </Form.Select>
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label>Language</Form.Label>
+                    <Form.Select
+                        name="Language"
+                        value={movie.Language}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="">Select Language</option>
+                        <option>Hindi</option>
+                        <option>Gujarati</option>
+                        <option>Marathi</option>
+                        <option>English</option>
+                        <option>Tamil</option>
+                        <option>Korean</option>
+                        <option>Telugu</option>
+                        <option>Malayalam</option>
                     </Form.Select>
                 </Form.Group>
 

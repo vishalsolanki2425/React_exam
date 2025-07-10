@@ -4,6 +4,7 @@ import { deleteMovieAsync, getMoviesAsync } from '../../Services/Actions/Movie_A
 import { Container, Row, Col, Card, Spinner, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import './Home_Page.css';
+import { RiArrowDropRightLine } from "react-icons/ri";
 import Slider from './slider';
 
 function Home_page() {
@@ -51,8 +52,10 @@ function Home_page() {
     return (
         <div className="home">
             <Container className="home-container">
-                <h3 className="section-title">Recommended Movies</h3>
-
+                <div className="home-title pt-4 d-flex justify-content-between align-items-center">
+                    <h3 className="section-title m-0">Recommended Movies</h3>
+                    <Link to={"/allmovie"} className='text-decoration-none'><p className='m-0'>See All<RiArrowDropRightLine /></p></Link>
+                </div>
                 {loading ? (
                     <div className="loading-spinner">
                         <Spinner animation="border" variant="danger" />

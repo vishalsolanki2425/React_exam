@@ -21,80 +21,82 @@ const View_Movie = () => {
     }
 
     return (
-        <Container className="movie-view-container my-4 p-4 border rounded bg-light">
-            <Row className="justify-content-center">
-                <Col xl={10} lg={10} md={12}>
-                    <Card className="movie-card">
-                        <Row className="g-0">
-                            <Col lg={4} md={5} className="poster-col">
-                                <div className="poster-wrapper">
-                                    <Card.Img
-                                        src={movie.poster}
-                                        alt={movie.title}
-                                        className="movie-poster"
-                                    />
-                                </div>
-                            </Col>
-
-                            <Col lg={8} md={7}>
-                                <Card.Body className="movie-details">
-                                    <Card.Title className="movie-title-view">
-                                        {movie.title}
-                                    </Card.Title>
-
-                                    <div className="genre-badges mb-3">
-                                        {movie.genre.split(',').map((g, i) => (
-                                            <Badge key={i} bg="secondary" className="me-2">
-                                                {g.trim()}
-                                            </Badge>
-                                        ))}
+        <div className="movie-view">
+            <Container className="movie-view-container p-4">
+                <Row className="justify-content-center">
+                    <Col xl={10} lg={10} md={12}>
+                        <Card className="movie-card">
+                            <Row className="g-0">
+                                <Col lg={4} md={5} className="poster-col">
+                                    <div className="poster-wrapper">
+                                        <Card.Img
+                                            src={movie.poster}
+                                            alt={movie.title}
+                                            className="movie-image"
+                                        />
                                     </div>
+                                </Col>
 
-                                    <div className="movie-meta mb-3">
-                                        <div className="meta-item">
-                                            <span className="meta-label">Duration:</span>
-                                            <span>{movie.duration || '120'} mins</span>
+                                <Col lg={8} md={7}>
+                                    <Card.Body className="movie-details">
+                                        <Card.Title className="movie-title-view">
+                                            {movie.title}
+                                        </Card.Title>
+
+                                        <div className="genre-badges mb-3">
+                                            {movie.genre.split(',').map((g, i) => (
+                                                <Badge key={i} bg="secondary" className="me-2">
+                                                    {g.trim()}
+                                                </Badge>
+                                            ))}
                                         </div>
-                                        <div className="meta-item">
-                                            <span className="meta-label">Language:</span>
-                                            <span>{movie.language || 'English'}</span>
+
+                                        <div className="movie-meta mb-3">
+                                            <div className="meta-item">
+                                                <span className="meta-label">Duration:</span>
+                                                <span>{movie.duration || '120'} mins</span>
+                                            </div>
+                                            <div className="meta-item">
+                                                <span className="meta-label">Language:</span>
+                                                <span>{movie.language || 'English'}</span>
+                                            </div>
+                                            <div className="meta-item">
+                                                <span className="meta-label">Votes:</span>
+                                                <span>{movie.votes || '1000'}</span>
+                                            </div>
                                         </div>
-                                        <div className="meta-item">
-                                            <span className="meta-label">Votes:</span>
-                                            <span>{movie.votes || '1000'}</span>
+
+                                        <Card.Text className="movie-plot">
+                                            {movie.plot || 'Plot details not available'}
+                                        </Card.Text>
+
+                                        <div className="movie-actions">
+                                            <Button variant="danger" className="me-3">
+                                                Book Tickets
+                                            </Button>
+                                            <Button variant="outline-secondary" onClick={() => navigate('/')}>
+                                                Back to Home
+                                            </Button>
                                         </div>
-                                    </div>
-
-                                    <Card.Text className="movie-plot">
-                                        {movie.plot || 'Plot details not available'}
-                                    </Card.Text>
-
-                                    <div className="movie-actions">
-                                        <Button variant="danger" className="me-3">
-                                            Book Tickets
-                                        </Button>
-                                        <Button variant="outline-secondary" onClick={() => navigate('/')}>
-                                            Back to Home
-                                        </Button>
-                                    </div>
-                                </Card.Body>
-                            </Col>
-                        </Row>
-                    </Card>
-
-                    <div className="about">
-                        <Card className="mt-4">
-                            <Card.Header>About the Movie</Card.Header>
-                            <Card.Body>
-                                <p>
-                                    {movie.Desc || 'No description available for this movie.'}
-                                </p>
-                            </Card.Body>
+                                    </Card.Body>
+                                </Col>
+                            </Row>
                         </Card>
-                    </div>
-                </Col>
-            </Row>
-        </Container>
+
+                        <div className="about">
+                            <Card className="mt-4">
+                                <Card.Header>About the Movie</Card.Header>
+                                <Card.Body>
+                                    <p>
+                                        {movie.Desc || 'No description available for this movie.'}
+                                    </p>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
     );
 };
 

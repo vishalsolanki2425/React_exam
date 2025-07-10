@@ -13,6 +13,7 @@ const Edit_Movie = () => {
     const [formData, setFormData] = useState({
         title: '',
         Category: '',
+        Language: '',
         rating: '',
         votes: '',
         Desc: '',
@@ -63,6 +64,27 @@ const Edit_Movie = () => {
                         <option value="Animation">Animation</option>
                     </Form.Select>
                 </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label>Language</Form.Label>
+                    <Form.Select
+                        name="Language"
+                        value={formData.Language}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="">Select Language</option>
+                        <option>Hindi</option>
+                        <option>Gujarati</option>
+                        <option>Marathi</option>
+                        <option>English</option>
+                        <option>Tamil</option>
+                        <option>Korean</option>
+                        <option>Telugu</option>
+                        <option>Malayalam</option>
+                    </Form.Select>
+                </Form.Group>
+
                 <Form.Group className="mb-3">
                     <Form.Label>Rating</Form.Label>
                     <Form.Select name="rating" value={formData.rating} onChange={handleChange} required >

@@ -1,0 +1,120 @@
+.All_movie {
+    background-color: #f6f6f6;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.all-movie-container {
+    margin-top: 20px;
+}
+
+.sidebar {
+    background: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-header {
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.clear {
+    font-size: 14px;
+    color: #f84464;
+    cursor: pointer;
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    padding: 5px 12px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #d81a60;
+    background: #fff;
+    cursor: pointer;
+}
+
+.tag-language {
+    padding: 5px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #d81a60;
+    background: #fff;
+    cursor: pointer;
+}
+
+.browse-btn {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    background-color: transparent;
+    color: #f84464;
+    border: 1px solid #f84464;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.main-content h3 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.lang-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.coming-soon {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    color: black;
+}
+
+.explore {
+    color: #f84464;
+    cursor: pointer;
+}
+
+.movie-image {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px 4px 0 0;
+}
+
+.movie-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.movie-genre {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.movie-badges .badge {
+    font-size: 0.75rem;
+    border-radius: 12px;
+}

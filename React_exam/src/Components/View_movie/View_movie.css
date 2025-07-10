@@ -1,3 +1,7 @@
+.movie-view {
+    background-color: #f6f6f6;
+}
+
 .movie-view-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -20,7 +24,7 @@
     position: relative;
 }
 
-.movie-poster {
+.movie-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -28,7 +32,7 @@
 
 
 .movie-details {
-    padding: 25px;
+    padding: 15px;
 }
 
 .movie-title-view {
