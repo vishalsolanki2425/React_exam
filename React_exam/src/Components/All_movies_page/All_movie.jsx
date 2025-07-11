@@ -113,7 +113,7 @@ function All_movie() {
                                 <div className="filter-header">Format <span className="clear">Clear</span></div>
                             </div>
 
-                            <button className="browse-btn">Browse by Cinemas</button>
+                            <Link to={"/cinemas"}><button className="browse-btn">Browse by Cinemas</button></Link>
                         </div>
                     </Col>
 

@@ -1,0 +1,19 @@
+.cinema-card {
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.cinema-card:hover {
+  transform: scale(1.01);
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.card-text {
+  font-size: 14px;
+}

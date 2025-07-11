@@ -47,16 +47,6 @@
     cursor: pointer;
 }
 
-.browse-btn {
-    padding: 5px;
-    width: 100%;
-    background-color: transparent;
-    color: #f84464;
-    border: 1px solid #f84464;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
 .main-content h3 {
     font-weight: 600;
     margin-bottom: 20px;

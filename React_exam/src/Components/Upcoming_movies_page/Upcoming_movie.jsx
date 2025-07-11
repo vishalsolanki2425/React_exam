@@ -110,7 +110,6 @@ function Upcoming_movie() {
                                 <div className="filter-header">Format <span className="clear">Clear</span></div>
                             </div>
 
-                            <button className="browse-btn">Browse by Cinemas</button>
                         </div>
                     </Col>
 

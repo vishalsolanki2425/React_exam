@@ -14,6 +14,8 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import All_movie from './Components/All_movies_page/All_movie';
 import Upcoming_movie from './Components/Upcoming_movies_page/Upcoming_movie';
+import Cinemas from './Components/Cinemas/Cinemas';
+import NotFound from './Components/NotFound_page/Notfound';
 
 function App() {
   const dispatch = useDispatch();
@@ -32,8 +34,10 @@ function App() {
         <Route path="/view/:id" element={<View_Movie />} />
         <Route path="/allmovie" element={<All_movie />} />
         <Route path="/upcoming" element={<Upcoming_movie />} />
+        <Route path="/cinemas" element={<Cinemas />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
