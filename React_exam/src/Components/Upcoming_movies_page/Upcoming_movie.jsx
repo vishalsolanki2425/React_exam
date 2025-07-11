@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Movie_slider from "./Movie_slider/Movie_slider";
-import "./All_movie.css";
+import { useEffect, useState } from "react";
+import "./Upcoming_movie.css";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../Firebase";
 import { Link } from "react-router-dom";
 
-function All_movie() {
+function Upcoming_movie() {
     const [movies, setMovies] = useState([]);
     const [selectedLanguages, setSelectedLanguages] = useState([]);
     const [selectedGenres, setSelectedGenres] = useState([]);
@@ -65,8 +64,6 @@ function All_movie() {
 
     return (
         <div className="All_movie">
-            <Movie_slider />
-
             <Container className="all-movie-container mt-4">
                 <Row>
                     <Col xs={12} md={4} lg={3}>
@@ -119,7 +116,7 @@ function All_movie() {
 
                     <Col xs={12} md={8} lg={9}>
                         <div className="main-content">
-                            <h3>Movies In Surat</h3>
+                            <h3>Upcoming Movies In Surat</h3>
 
                             <div className="lang-tags mb-3">
                                 {languages.map((lang, index) => (
@@ -133,10 +130,10 @@ function All_movie() {
                                 ))}
                             </div>
 
-                            <Link to="/upcoming" className="text-decoration-none">
+                            <Link to="/allmovie" className="text-decoration-none">
                                 <div className="coming-soon">
-                                    <h5>Coming Soon</h5>
-                                    <span className="explore">Explore Upcoming Movies ➜</span>
+                                    <h5>Now Showing</h5>
+                                    <span className="explore">In Cinemas near you ➜</span>
                                 </div>
                             </Link>
 
@@ -174,4 +171,4 @@ function All_movie() {
     );
 }
 
-export default All_movie;
+export default Upcoming_movie;

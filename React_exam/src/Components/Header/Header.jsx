@@ -113,10 +113,18 @@ function Header() {
             <div className="bottom-nav">
                 <Container className="d-flex justify-content-between">
                     <ul className="nav-left">
-                        <li>Movies</li><li>Stream</li><li>Events</li><li>Plays</li><li>Sports</li><li>Activities</li>
+                        <Link to={"/allmovie"} className='text-decoration-none text-dark'><li>Movies</li></Link>
+                        <Link to={"/"} className='text-decoration-none text-dark'><li>Stream</li></Link>
+                        <Link to={"/"} className='text-decoration-none text-dark'><li>Events</li></Link>
+                        <Link to={"/"} className='text-decoration-none text-dark'><li>Plays</li></Link>
+                        <Link to={"/"} className='text-decoration-none text-dark'><li>Sports</li></Link>
+                        <Link to={"/"} className='text-decoration-none text-dark'><li>Activities</li></Link>
                     </ul>
                     <ul className="nav-right">
-                        <li>ListYourShow</li><li>Corporates</li><li>Offers</li><li>Gift Cards</li>
+                        <li>ListYourShow</li>
+                        <li>Corporates</li>
+                        <li>Offers</li>
+                        <li>Gift Cards</li>
                     </ul>
                 </Container>
             </div>

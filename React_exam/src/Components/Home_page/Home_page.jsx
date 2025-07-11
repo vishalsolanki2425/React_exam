@@ -79,7 +79,7 @@ function Home_page() {
                                         </Link>
                                         <Card.Body className="movie-details">
                                             <Card.Title className="movie-title">{movie.title}</Card.Title>
-                                            <Card.Text className="movie-genre">{movie.genre}</Card.Text>
+                                            <Card.Text className="movie-genre">{movie.Language} / {movie.genre}</Card.Text>
                                         </Card.Body>
 
                                         <div className="movie-actions d-flex justify-content-center">
