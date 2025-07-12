@@ -27,7 +27,7 @@
     padding: 10px;
 }
 
-.movie-card {
+.movie-card-home {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -52,11 +52,11 @@
     transition: transform 0.3s ease;
 }
 
-.movie-details {
+.movie-details-home {
     padding: 15px;
 }
 
-.movie-title {
+.movie-title-home {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 5px;
@@ -65,7 +65,7 @@
     text-overflow: ellipsis;
 }
 
-.movie-genre {
+.movie-genre-home {
     color: #666;
     font-size: 0.85rem;
     margin-bottom: 0;
@@ -232,7 +232,7 @@
         height: 100%;
     }
 
-    .movie-title {
+    .movie-title-home {
         font-size: 0.95rem;
     }
 
@@ -261,7 +261,7 @@
         padding-bottom: 140%;
     }
 
-    .movie-details {
+    .movie-details-home {
         padding: 12px;
     }
 
@@ -289,11 +289,11 @@
         padding-bottom: 130%;
     }
 
-    .movie-title {
+    .movie-title-home {
         font-size: 0.9rem;
     }
 
-    .movie-genre {
+    .movie-genre-home {
         font-size: 0.8rem;
     }
 

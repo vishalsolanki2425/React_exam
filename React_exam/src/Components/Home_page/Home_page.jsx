@@ -66,7 +66,7 @@ function Home_page() {
                         <Row className="movie-grid">
                             {currentMovies.length > 0 ? currentMovies.map((movie) => (
                                 <Col key={movie.id} xs={12} sm={6} md={4} lg={3} className="movie-card-col">
-                                    <Card className="movie-card h-100">
+                                    <Card className="movie-card-home h-100">
                                         <Link to={`/view/${movie.id}`} className="text-decoration-none">
                                             <div className="poster-container">
                                                 <Card.Img
@@ -77,9 +77,9 @@ function Home_page() {
                                                 />
                                             </div>
                                         </Link>
-                                        <Card.Body className="movie-details">
-                                            <Card.Title className="movie-title">{movie.title}</Card.Title>
-                                            <Card.Text className="movie-genre">{movie.Language} / {movie.genre}</Card.Text>
+                                        <Card.Body className="movie-details-home">
+                                            <Card.Title className="movie-title-home">{movie.title}</Card.Title>
+                                            <Card.Text className="movie-genre-home">{movie.Language} / {movie.genre}</Card.Text>
                                         </Card.Body>
 
                                         <div className="movie-actions d-flex justify-content-center">

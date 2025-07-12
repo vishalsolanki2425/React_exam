@@ -1,0 +1,150 @@
+.book-page {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.ticket-card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: none;
+}
+
+.ticket-card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.ticket-card-title {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.time-slots {
+    margin-top: 0.5rem;
+}
+
+.time-btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.time-btn:hover:not(.btn-danger) {
+    background-color: #f8f9fa;
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.book-btn {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+}
+
+.book-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+.total-price {
+    border: 2px dashed #dee2e6;
+}
+
+.form-control-lg,
+.form-select-lg {
+    padding: 12px 16px;
+    border-radius: 8px;
+}
+
+.booking-confirmation-modal .modal-content {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.booking-confirmation-modal .modal-header {
+    border-bottom: none;
+    padding: 1.5rem;
+}
+
+.booking-confirmation-modal .confirmation-icon {
+    display: flex;
+    align-items: center;
+}
+
+.booking-confirmation-modal .modal-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.booking-confirmation-modal .modal-body {
+    padding: 2rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.detail-value {
+    font-weight: 500;
+    color: #212529;
+}
+
+.detail-item.total-price {
+    grid-column: span 2;
+    background-color: #e8f5e9;
+    border-left: 4px solid #4caf50;
+}
+
+.confirmation-note {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+@media (max-width: 768px) {
+    .ticket-card {
+        margin-bottom: 2rem;
+    }
+
+    .time-btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-item.total-price {
+        grid-column: span 1;
+    }
+
+    .booking-confirmation-modal .modal-footer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .booking-confirmation-modal .modal-footer>div {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
