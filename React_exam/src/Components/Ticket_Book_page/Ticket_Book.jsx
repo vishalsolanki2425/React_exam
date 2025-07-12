@@ -25,13 +25,6 @@ const Ticket_Book = () => {
 
     const totalPrice = seatPrices[seatType] * seats;
 
-    const today = new Date();
-    const next7Days = Array.from({ length: 7 }).map((_, i) => {
-        const d = new Date();
-        d.setDate(today.getDate() + i);
-        return d.toISOString().split("T")[0];
-    });
-
     useEffect(() => {
         const fetchMovie = async () => {
             try {
@@ -149,7 +142,6 @@ const Ticket_Book = () => {
                     </div>
                 </Modal.Body>
                 <Modal.Footer className="d-flex justify-content-center">
-                    <div className="d-flex gap-3">
                         <Button
                             variant="success"
                             onClick={() => {
@@ -160,7 +152,6 @@ const Ticket_Book = () => {
                         >
                             Done
                         </Button>
-                    </div>
                 </Modal.Footer>
             </Modal>
 
@@ -186,24 +177,16 @@ const Ticket_Book = () => {
                                 <p>Rating: ⭐⭐⭐⭐⭐</p>
                             </div>
                             <Form>
+                                {/* ✅ Updated Date Picker */}
                                 <Form.Group className="mb-4">
                                     <Form.Label className="fw-bold">Select Date</Form.Label>
-                                    <Form.Select
+                                    <Form.Control
+                                        type="date"
                                         value={selectedDate}
                                         onChange={e => setSelectedDate(e.target.value)}
                                         className="form-control-lg"
-                                    >
-                                        <option value="">-- Choose Date --</option>
-                                        {next7Days.map(date => (
-                                            <option key={date} value={date}>
-                                                {new Date(date).toLocaleDateString('en-US', {
-                                                    weekday: 'short',
-                                                    month: 'short',
-                                                    day: 'numeric'
-                                                })}
-                                            </option>
-                                        ))}
-                                    </Form.Select>
+                                        min={new Date().toISOString().split("T")[0]} // today
+                                    />
                                 </Form.Group>
 
                                 <Form.Group className="mb-4">
