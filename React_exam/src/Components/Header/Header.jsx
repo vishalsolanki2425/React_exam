@@ -11,6 +11,7 @@ import { filterMovies, logoutUser } from '../../Services/Actions/Movie_Actions';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../Firebase';
 import { toast } from 'react-toastify';
+import { RiAdminLine } from 'react-icons/ri';
 
 function Header() {
     const { user } = useSelector((state) => state.AuthReducer);
@@ -69,7 +70,7 @@ function Header() {
                         <div className="location-selector">Surat <span className="dropdown-arrow">▾</span></div>
                         {user?.email === "admin@gmail.com" && (
                             <button className="sign-in-btn">
-                                <Link to="/add" className="text-decoration-none text-white">Add Movie</Link>
+                                <Link to="/admin" className="text-decoration-none text-white">Admin</Link>
                             </button>
                         )}
                         {user ? (
@@ -96,7 +97,9 @@ function Header() {
                                 <button onClick={handleLogout} className="sign-in-btn">Logout</button>
                             )}
                         </div>
-
+                        {user?.email === "admin@gmail.com" && (
+                            <Link to={'/admin'} className='text-decoration-none'><div className="sidebar-item"><RiAdminLine className="sidebar-icon" /><span>Admin</span></div></Link>
+                        )}
                         <div className="sidebar-item"><FaBell className="sidebar-icon" /><span>Notifications</span></div>
                         <div className="sidebar-item"><MdShoppingBasket className="sidebar-icon" /><span>Your Orders</span></div>
                         <div className="sidebar-item"><MdMovie className="sidebar-icon" /><span>Stream Library</span></div>

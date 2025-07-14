@@ -34,7 +34,7 @@ const Add_movie = () => {
         await dispatch(addMovieAsync(movie));
         alert("Movie added successfully!");
         setMovie({ title: '', genre: '', Language: '', rating: '', votes: '', Desc: '', poster: '' });
-        navigate('/');
+        navigate('/admin');
     };
 
     return (

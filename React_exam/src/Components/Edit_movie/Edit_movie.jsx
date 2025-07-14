@@ -39,7 +39,7 @@ const Edit_Movie = () => {
         e.preventDefault();
         dispatch(editMovieAsync(id, formData));
         alert("Movie updated successfully!");
-        navigate('/');
+        navigate('/admin');
     };
 
     return (

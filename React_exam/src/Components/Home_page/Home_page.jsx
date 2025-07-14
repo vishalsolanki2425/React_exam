@@ -9,10 +9,10 @@ import Slider from './slider';
 
 function Home_page() {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const { filteredMovies, loading, user } = useSelector((state) => state.Movie_Reducers);
-    const isAdmin = user?.email === "admin@gmail.com";
+    // const isAdmin = user?.email === "admin@gmail.com";
 
     const [currentPage, setCurrentPage] = useState(1);
     const moviesPerPage = 8;
@@ -43,12 +43,6 @@ function Home_page() {
         dispatch(getMoviesAsync());
     }, [dispatch]);
 
-    const handleDelete = (id) => {
-        if (window.confirm('Are you sure you want to delete this movie?')) {
-            dispatch(deleteMovieAsync(id));
-        }
-    };
-
     return (
         <div className="home">
             <Container className="home-container">
@@ -66,7 +60,7 @@ function Home_page() {
                         <Row className="movie-grid">
                             {currentMovies.length > 0 ? currentMovies.map((movie) => (
                                 <Col key={movie.id} xs={12} sm={6} md={4} lg={3} className="movie-card-col">
-                                    <Card className="movie-card-home h-100">
+                                    <Card className="movie-card-home">
                                         <Link to={`/view/${movie.id}`} className="text-decoration-none">
                                             <div className="poster-container">
                                                 <Card.Img
@@ -81,30 +75,6 @@ function Home_page() {
                                             <Card.Title className="movie-title-home">{movie.title}</Card.Title>
                                             <Card.Text className="movie-genre-home">{movie.Language} / {movie.genre}</Card.Text>
                                         </Card.Body>
-
-                                        <div className="movie-actions d-flex justify-content-center">
-                                            {isAdmin && (
-                                                <>
-                                                    <Button
-                                                        variant="outline-primary"
-                                                        size="sm"
-                                                        onClick={() => navigate(`/edit/${movie.id}`)}
-                                                        className="action-btn"
-                                                    >
-                                                        Edit
-                                                    </Button>
-                                                    <Button
-                                                        variant="outline-danger"
-                                                        size="sm"
-                                                        onClick={() => handleDelete(movie.id)}
-                                                        className="action-btn"
-                                                    >
-                                                        Delete
-                                                    </Button>
-                                                </>
-                                            )}
-                                        </div>
-
                                     </Card>
                                 </Col>
                             )) : (

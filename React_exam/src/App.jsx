@@ -17,6 +17,7 @@ import Upcoming_movie from './Components/Upcoming_movies_page/Upcoming_movie';
 import Cinemas from './Components/Cinemas/Cinemas';
 import NotFound from './Components/NotFound_page/Notfound';
 import Ticket_Book from './Components/Ticket_Book_page/Ticket_Book';
+import Admin from './Components/Admin_page/Admin';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function App() {
         <Route path="/ticket-book/:id" element={<Ticket_Book />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
