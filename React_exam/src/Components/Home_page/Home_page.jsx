@@ -1,18 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteMovieAsync, getMoviesAsync } from '../../Services/Actions/Movie_Actions';
+import { getMoviesAsync } from '../../Services/Actions/Movie_Actions';
 import { Container, Row, Col, Card, Spinner, Button } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Home_Page.css';
 import { RiArrowDropRightLine } from "react-icons/ri";
 import Slider from './slider';
+import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 
 function Home_page() {
     const dispatch = useDispatch();
-    // const navigate = useNavigate();
 
     const { filteredMovies, loading, user } = useSelector((state) => state.Movie_Reducers);
-    // const isAdmin = user?.email === "admin@gmail.com";
 
     const [currentPage, setCurrentPage] = useState(1);
     const moviesPerPage = 8;
@@ -92,7 +91,7 @@ function Home_page() {
                                     onClick={handlePrev}
                                     disabled={currentPage === 1}
                                 >
-                                    Prev
+                                    <MdNavigateBefore />
                                 </Button>
 
                                 {[...Array(totalPages).keys()].map((number) => (
@@ -112,7 +111,7 @@ function Home_page() {
                                     onClick={handleNext}
                                     disabled={currentPage === totalPages}
                                 >
-                                    Next
+                                    <MdNavigateNext />
                                 </Button>
                             </div>
                         )}
