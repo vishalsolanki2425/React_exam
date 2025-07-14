@@ -67,7 +67,7 @@ function Header() {
                     </div>
 
                     <div className="d-flex align-items-center gap-3">
-                        <div className="location-selector">Surat <span className="dropdown-arrow">▾</span></div>
+                        <div className="location-selector">Surat</div>
                         {user?.email === "admin@gmail.com" && (
                             <button className="sign-in-btn">
                                 <Link to="/admin" className="text-decoration-none text-white">Admin</Link>
