@@ -12,6 +12,7 @@ const View_Movie = () => {
     const { movies } = useSelector(state => state.Movie_Reducers);
     const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(true);
+    const user = useSelector(state => state.AuthReducer.user);
 
     useEffect(() => {
         const movieFromStore = movies.find(m => m.id === id);
@@ -111,9 +112,17 @@ const View_Movie = () => {
                                         </div>
 
                                         <div className="movie-actions mt-auto">
-                                            <Button variant="danger" className="me-3" onClick={() => navigate(`/ticket-book/${movie.id}`)}>
-                                                Book Tickets
-                                            </Button>
+                                            {
+                                                user ? (
+                                                    <Button variant="danger" className="me-3" onClick={() => navigate(`/ticket-book/${movie.id}`)}>
+                                                        Book Tickets
+                                                    </Button>
+                                                ) : (
+                                                    <Button variant="danger" className="me-3" onClick={() => navigate('/signin')}>
+                                                        Book Tickets
+                                                    </Button>
+                                                )
+                                            }
                                             <Button variant="outline-secondary" onClick={() => navigate('/')}>
                                                 Back to Home
                                             </Button>
